@@ -1,2 +1,2 @@
 # BHApiHelper
-This is used for making you API experience better.
+This is used for making your API experience better.
