@@ -1,0 +1,11 @@
+framework module BHAPIManager {
+  umbrella header "BHAPIManager.h"
+
+  export *
+  module * { export * }
+}
+
+module BHAPIManager.Swift {
+    header "BHAPIManager-Swift.h"
+    requires objc
+}

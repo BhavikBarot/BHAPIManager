@@ -1,0 +1,129 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
+// swift-module-flags: -target arm64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name BHAPIManager
+import Alamofire
+@_exported import BHAPIManager
+import Foundation
+import Swift
+import UIKit
+import _Concurrency
+extension BHAPIManager.API {
+  public struct MutlipartFile {
+  }
+}
+extension BHAPIManager.API {
+  public enum ConfigureAuthorisation {
+    case setAuthorisation(withAuthToken: Swift.String, andRefreshToken: Swift.String?)
+  }
+  public enum RetryerRequest {
+    case request(withURL: Foundation.URL, andParam: [Swift.String : Any])
+  }
+  public enum RetryerResponse {
+    case responseValues(authTokenKey: Swift.String)
+  }
+  public static func configure(baseURL: Foundation.URL)
+  public static func configure(authorisation: BHAPIManager.API.ConfigureAuthorisation)
+  public static func configure(RequestRetryer retryerRequest: BHAPIManager.API.RetryerRequest, andResponseForRetryer retryerResponse: BHAPIManager.API.RetryerResponse)
+  public static func logs(enabled: Swift.Bool)
+}
+extension BHAPIManager.API {
+  public typealias Headers = [Swift.String : Swift.String]
+  public typealias ResponseType = Swift.Decodable
+  public typealias RequestType = Swift.Encodable
+  public typealias Response<T> = (_ result: Swift.Result<T, Foundation.NSError>) -> Swift.Void
+  public typealias ResponseMappable<T> = (T?, Foundation.NSError?) -> Swift.Void
+  public typealias CompletionType<Response> = Swift.Result<Response, Foundation.NSError>
+  public typealias AFResponse<Response> = Alamofire.DataResponse<BHAPIManager.ApiResponse<Response>, Alamofire.AFError> where Response : Swift.Decodable
+  public static let statusCode: Swift.String
+  public static let unauthorisedStatusCodes: Swift.ClosedRange<Swift.Int>
+  public enum Method : Swift.String {
+    case get
+    case post
+    case put
+    case patch
+    case delete
+    case copy
+    case head
+    case options
+    case link
+    case unlink
+    case purge
+    case lock
+    case unlock
+    case propfind
+    case view
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+}
+public struct API {
+}
+@objc @_hasMissingDesignatedInitializers public class DataRequest : ObjectiveC.NSObject {
+  @objc deinit
+}
+extension BHAPIManager.DataRequest {
+  public func setExtraHeaders(_ headers: [Swift.String : Swift.String]) -> BHAPIManager.DataRequest
+  public func basicAuth(enabled: Swift.Bool) -> BHAPIManager.DataRequest
+  public func response<T>(forModel model: T.Type, onSuccess: @escaping (T) -> (), onError: @escaping (Foundation.NSError?) -> (), onUnAuthorisation: ((Foundation.NSError?) -> ())? = nil) where T : Swift.Decodable
+}
+@objc @_hasMissingDesignatedInitializers public class DataRequestUpload : ObjectiveC.NSObject {
+  @objc deinit
+}
+extension BHAPIManager.DataRequestUpload {
+  public func setExtraHeaders(_ headers: [Swift.String : Swift.String]) -> BHAPIManager.DataRequestUpload
+  public func response<T>(forModel model: T.Type, onSuccess: @escaping (T) -> (), onError: @escaping (Foundation.NSError?) -> (), onUnAuthorisation: ((Foundation.NSError?) -> ())? = nil) where T : Swift.Decodable
+}
+extension BHAPIManager.API {
+  public struct Client {
+    public static func request(router: BHAPIManager.Router) -> BHAPIManager.DataRequest
+    public static func request(urlRequest: Foundation.URLRequest) -> BHAPIManager.DataRequest
+    public static func request(url: Foundation.URL, method: BHAPIManager.API.Method, params: [Swift.String : Any]?) -> BHAPIManager.DataRequest
+    public static func request<Param>(url: Foundation.URL, method: BHAPIManager.API.Method, params: Param?) -> BHAPIManager.DataRequest where Param : Swift.Encodable
+    public static func requestUpload(param params: [Swift.String : Any], url: Swift.String, data: [BHAPIManager.API.MutlipartFile], isUpdate: Swift.Bool, headers: [Swift.String : Swift.String]? = nil) -> BHAPIManager.DataRequestUpload
+  }
+}
+extension BHAPIManager.API {
+  public enum EncodeType {
+    case url, json
+    case dictionary
+    public static func == (a: BHAPIManager.API.EncodeType, b: BHAPIManager.API.EncodeType) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public static func getURLRequest<Parameter>(withURL url: Foundation.URL, forMethod method: BHAPIManager.API.Method, from apiParams: Parameter?, toEncode type: BHAPIManager.API.EncodeType, andHeaders headers: [Swift.String : Swift.String]? = nil) throws -> Foundation.URLRequest where Parameter : Swift.Encodable
+  public static func getURLRequest(withURL url: Foundation.URL, forMethod method: BHAPIManager.API.Method, from apiParams: [Swift.String : Any]?, toEncode type: BHAPIManager.API.EncodeType = .dictionary, andHeaders headers: [Swift.String : Swift.String]? = nil) throws -> Foundation.URLRequest
+}
+extension Foundation.URLRequest {
+  public mutating func setAuthorizationHeader(_ authToken: Swift.String)
+  public mutating func setHeaders(_ headers: [Swift.String : Swift.String])
+}
+public struct ApiResponse<T> : Swift.Decodable where T : Swift.Decodable {
+  public init(from decoder: Swift.Decoder) throws
+}
+extension BHAPIManager.ApiResponse {
+  public init(data: Foundation.Data) throws
+  public init(_ json: Swift.String, using encoding: Swift.String.Encoding = .utf8) throws
+  public init(fromURL url: Foundation.URL) throws
+  public func with(success: Swift.Bool? = nil, message: Swift.String? = nil, result: T? = nil, data: T? = nil, status: Swift.Bool? = nil, statusCode: Swift.Int? = nil) -> BHAPIManager.ApiResponse<T>
+}
+public protocol Router {
+  var asURL: Foundation.URL { get }
+  var path: Swift.String { get }
+  var method: BHAPIManager.API.Method { get }
+  func asURLRequest() throws -> Foundation.URLRequest
+}
+extension BHAPIManager.Router {
+  public var baseURL: Foundation.URL {
+    get
+  }
+}
+extension BHAPIManager.API.Method : Swift.Equatable {}
+extension BHAPIManager.API.Method : Swift.Hashable {}
+extension BHAPIManager.API.Method : Swift.RawRepresentable {}
+extension BHAPIManager.API.EncodeType : Swift.Equatable {}
+extension BHAPIManager.API.EncodeType : Swift.Hashable {}
