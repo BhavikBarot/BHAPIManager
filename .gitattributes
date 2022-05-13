@@ -1,3 +1,2 @@
 * linguist-vendored
-*.Objective-C linguist-vendored=false
-*.Swift linguist-vendored=Swift
+*.Swift linguist-vendored=true
