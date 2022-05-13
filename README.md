@@ -19,4 +19,4 @@ Installation
 ==========================
 #### Swift Package Installation
 
-[SwiftPackageManager]:= 'https://github.com/BhavikBarot/BHAPIHelper/' package URL
+[SwiftPackageManager]:= 'https://github.com/BhavikBarot/BHAPIManager' package URL
