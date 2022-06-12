@@ -47,7 +47,7 @@ API.configure(RequestRetryer: .request(withURL: URL(string: "URL")!, andParam: [
 ```
 
 **Example Code**
-
+> For Codable
 ```
 import BHAPIManager
 
@@ -57,6 +57,24 @@ class LoginServices {
         API.Client.request(router: LoginRouter.login(params: LoginRequest(email: "barotbhavik23@yopmail.com", password: "Test@123")))
             .basicAuth(enabled: false)
             .response(forModel: LoginResponse.self) { res in
+            onSuccess(res)
+        } onError: { error in
+            onError(error?.localizedDescription ?? "")
+        }
+    }
+}
+```
+> For JSON
+
+```
+import BHAPIManager
+
+class LoginServices {
+    
+    static func callLogin(onSuccess: @escaping ([String: Any]) -> (), onError: @escaping (String) -> ()) {
+        API.Client.request(router: LoginRouter.login(params: LoginRequest(email: "barotbhavik23@yopmail.com", password: "Test@123")))
+            .basicAuth(enabled: false)
+            .responseJSON { res in
             onSuccess(res)
         } onError: { error in
             onError(error?.localizedDescription ?? "")
