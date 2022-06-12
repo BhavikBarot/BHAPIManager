@@ -65,7 +65,7 @@ class LoginServices {
 }
 ```
 
-> :warning: **There is restricted top level structure for Response JSON**: Make sure you use the same structure! Else response will be considered as String or String Array
+> 🚧: Try default top level structure to get smooth data parsing and validated response.
 ```
 success: Bool?
 status: Bool?
