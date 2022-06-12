@@ -18,19 +18,19 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		+uhahkaXYxBKGbQDwoGia1NLdw8=
+		1RwE/gZU7YbpTkvPuiZF3k5ia6Q=
 		</data>
 		<key>Modules/BHAPIManager.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		g+qIIixvX6usdATDe8tqrWdEWU0=
+		hdZ9VIlowZ7yprJdDglMdNpn08E=
 		</data>
 		<key>Modules/BHAPIManager.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		hi5AXPnh34kgcDCAuwkBgdkmEzQ=
+		KUvYjZ4Yd2IqEAFaFkgs5BOA6W0=
 		</data>
 		<key>Modules/BHAPIManager.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		mtoP3fOEmtna5p5O2/JQ3s1QYp4=
+		dkNfOZs9ngMZ7uUOZvDO0OF8Zw0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -64,21 +64,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			GVCB7/0UMO5MKmijBPDkhmyqocWQzCQJmj6XoXnLWNA=
+			xb5ydOKcOWOaOd39BMIwFTH86TmKvFM4nzYxfvskDd4=
 			</data>
 		</dict>
 		<key>Modules/BHAPIManager.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Iv7n+2K//QLz9/CAIWJ9+vneXmwitML6HHhgIo1OHzg=
+			1GeEENiHoj1sLnsgmtnnmJ7j+M4JtfgnJ/g1lNoi/Cs=
 			</data>
 		</dict>
 		<key>Modules/BHAPIManager.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ODcpRkdbDRsyrFbcBhtwccKtkfhTsVQbbfk7qWKTLKw=
+			r+kW9cBSg/a72x2nM9w3ZuiScmh4JOdSNhVgBxMfNSM=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

@@ -31,9 +31,8 @@ extension BHAPIManager.API {
   public typealias ResponseType = Swift.Decodable
   public typealias RequestType = Swift.Encodable
   public typealias Response<T> = (_ result: Swift.Result<T, Foundation.NSError>) -> Swift.Void
-  public typealias ResponseMappable<T> = (T?, Foundation.NSError?) -> Swift.Void
   public typealias CompletionType<Response> = Swift.Result<Response, Foundation.NSError>
-  public typealias AFResponse<Response> = Alamofire.DataResponse<BHAPIManager.ApiResponse<Response>, Alamofire.AFError> where Response : Swift.Decodable
+  public typealias CompletionTypeJSON = Swift.Result<[Swift.String : Any]?, Foundation.NSError>
   public static let statusCode: Swift.String
   public static let unauthorisedStatusCodes: Swift.ClosedRange<Swift.Int>
   public enum Method : Swift.String {
@@ -68,6 +67,7 @@ extension BHAPIManager.DataRequest {
   public func setExtraHeaders(_ headers: [Swift.String : Swift.String]) -> BHAPIManager.DataRequest
   public func basicAuth(enabled: Swift.Bool) -> BHAPIManager.DataRequest
   public func response<T>(forModel model: T.Type, onSuccess: @escaping (T) -> (), onError: @escaping (Foundation.NSError?) -> (), onUnAuthorisation: ((Foundation.NSError?) -> ())? = nil) where T : Swift.Decodable
+  public func responseJSON(onSuccess: @escaping ([Swift.String : Any]) -> (), onError: @escaping (Foundation.NSError?) -> (), onUnAuthorisation: ((Foundation.NSError?) -> ())? = nil)
 }
 @objc @_hasMissingDesignatedInitializers public class DataRequestUpload : ObjectiveC.NSObject {
   @objc deinit
@@ -75,6 +75,7 @@ extension BHAPIManager.DataRequest {
 extension BHAPIManager.DataRequestUpload {
   public func setExtraHeaders(_ headers: [Swift.String : Swift.String]) -> BHAPIManager.DataRequestUpload
   public func response<T>(forModel model: T.Type, onSuccess: @escaping (T) -> (), onError: @escaping (Foundation.NSError?) -> (), onUnAuthorisation: ((Foundation.NSError?) -> ())? = nil) where T : Swift.Decodable
+  public func responseJSON(onSuccess: @escaping ([Swift.String : Any]) -> (), onError: @escaping (Foundation.NSError?) -> (), onUnAuthorisation: ((Foundation.NSError?) -> ())? = nil)
 }
 extension BHAPIManager.API {
   public struct Client {
