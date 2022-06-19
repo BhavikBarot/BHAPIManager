@@ -9,6 +9,7 @@ import UIKit
 import _Concurrency
 extension BHAPIManager.API {
   public struct MutlipartFile {
+    public init(name: Swift.String, key: Swift.String, url: Foundation.URL, mimeType: Swift.String)
   }
 }
 extension BHAPIManager.API {
