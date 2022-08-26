@@ -20,7 +20,7 @@ extension BHAPIManager.API {
     case request(withURL: Foundation.URL, andParam: [Swift.String : Any])
   }
   public enum RetryerResponse {
-    case responseValues(authTokenKey: Swift.String)
+    case responseValues(authTokenKey: Swift.String, refreshTokenKey: Swift.String?)
   }
   public static func configure(baseURL: Foundation.URL)
   public static func configure(authorisation: BHAPIManager.API.ConfigureAuthorisation)
