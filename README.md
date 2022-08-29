@@ -43,7 +43,7 @@ API.configure(authorisation: .setAuthorisation(withAuthToken: "Bearer Token", an
 
 To set the request retryer for unauthorisation. It will refresh the token details and resume the previous API by creating new session.
 ```
-API.configure(RequestRetryer: .request(withURL: URL(string: "URL")!, andParam: [:]), andResponseForRetryer: .responseValues(authTokenKey: "authTokenKey", refreshTokenKey: "refreshTokenKey"))
+API.configure(RequestRetryer: .request(forMethod: .post, withURL: URL(string: "URL")!, andParam: [:]), andResponseForRetryer: .responseValues(authTokenKey: "authTokenKey", refreshTokenKey: "refreshTokenKey"))
 ```
 
 **Example Code**
