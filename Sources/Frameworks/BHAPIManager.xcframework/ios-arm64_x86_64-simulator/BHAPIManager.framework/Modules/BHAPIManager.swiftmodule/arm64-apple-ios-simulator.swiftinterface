@@ -17,7 +17,7 @@ extension BHAPIManager.API {
     case setAuthorisation(withAuthToken: Swift.String, andRefreshToken: Swift.String?)
   }
   public enum RetryerRequest {
-    case request(withURL: Foundation.URL, andParam: [Swift.String : Any])
+    case request(forMethod: BHAPIManager.API.Method, withURL: Foundation.URL, andParam: [Swift.String : Any])
   }
   public enum RetryerResponse {
     case responseValues(authTokenKey: Swift.String, refreshTokenKey: Swift.String?)
